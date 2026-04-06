@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasets | JSYCURE Learning Lab</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <div class="brand-icon">🛡️</div>
+                <div>
+                    <h1>JSYCURE Learning Lab</h1>
+                    <p>Security Education Dataset Archive</p>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="datasets.html" class="active">Datasets</a>
+                <a href="guides.html">Guides</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <section class="container">
+            <div class="page-heading">
+                <h2>Security Learning Datasets</h2>
+                <p>교육 및 실습용 보안 로그 CSV 목록입니다.</p>
+            </div>
+
+            <div class="table-toolbar">
+                <div class="entries-box">
+                    <label for="entriesSelect">Show</label>
+                    <select id="entriesSelect">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                    <span>entries</span>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search Dataset ID, Title, Source...">
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="dataset-table">
+                    <thead>
+                        <tr>
+                            <th>Dataset ID</th>
+                            <th>Title</th>
+                            <th>Source</th>
+                            <th>Type</th>
+                            <th>Label</th>
+                            <th>CSV</th>
+                            <th>Guide</th>
+                        </tr>
+                    </thead>
+                    <tbody id="datasetTableBody">
+                        <tr>
+                            <td>SURI-001</td>
+                            <td>Suricata Flow Sample</td>
+                            <td>Suricata</td>
+                            <td>Flow</td>
+                            <td>Binary</td>
+                            <td><a class="table-btn" href="data/suricata-flow-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>SURI-002</td>
+                            <td>Suricata Alert Sample</td>
+                            <td>Suricata</td>
+                            <td>Alert</td>
+                            <td>Binary</td>
+                            <td><a class="table-btn" href="data/suricata-alert-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>TPOT-001</td>
+                            <td>T-Pot Traffic Sample</td>
+                            <td>T-Pot</td>
+                            <td>Flow</td>
+                            <td>Binary</td>
+                            <td><a class="table-btn" href="data/tpot-traffic-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>SURI-003</td>
+                            <td>External Test Aligned Sample</td>
+                            <td>Suricata</td>
+                            <td>Aligned</td>
+                            <td>Binary</td>
+                            <td><a class="table-btn" href="data/suricata-flow-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>LAB-001</td>
+                            <td>MLP Training Practice Dataset</td>
+                            <td>Internal Lab</td>
+                            <td>Training</td>
+                            <td>Binary</td>
+                            <td><a class="table-btn" href="data/suricata-alert-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>LAB-002</td>
+                            <td>Packet Feature Engineering Sample</td>
+                            <td>Internal Lab</td>
+                            <td>Feature</td>
+                            <td>Binary</td>
+                            <td><a class="table-btn" href="data/tpot-traffic-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-footer">
+                <p id="tableCountInfo">Showing dataset entries</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© 2026 JSYCURE Learning Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>
