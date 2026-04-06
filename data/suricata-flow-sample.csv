@@ -1,0 +1,4 @@
+flow_id,proto,src_port,dest_port,pkts_toserver,pkts_toclient,bytes_toserver,bytes_toclient,total_pkts,total_bytes,duration,packet_rate,byte_rate,label
+1001,TCP,44321,80,10,8,1200,980,18,2180,2.1,8.57,1038.10,0
+1002,TCP,51234,22,30,5,5400,600,35,6000,1.2,29.16,5000.00,1
+1003,UDP,33455,53,6,6,400,390,12,790,0.8,15.00,987.50,0
