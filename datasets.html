@@ -30,7 +30,21 @@
         <section class="container">
             <div class="page-heading">
                 <h2>Security Learning Datasets</h2>
-                <p>교육 및 실습용 보안 로그 CSV 목록입니다.</p>
+                <p>
+                    이 페이지는 Suricata 및 보안 실습 환경에서 수집한 교육용 CSV 데이터셋을 정리한 공간입니다.
+                    각 데이터셋은 보안 로그 분석, 라벨링, Feature Engineering, MLP 기반 IDS 실습을 목적으로 구성되어 있습니다.
+                </p>
+            </div>
+
+            <div class="content-box" style="margin-bottom: 24px;">
+                <h3>Dataset Page Guide</h3>
+                <p>
+                    아래 목록에서는 각 데이터셋의 식별자, 출처, 유형, 라벨 방식, 난이도, 교육 목적을 함께 확인할 수 있습니다.
+                    검색창을 사용하면 특정 데이터셋을 빠르게 찾을 수 있으며,
+                    Download 버튼으로 샘플 CSV를 내려받아 직접 실습할 수 있습니다.
+                    Details 버튼은 현재 가이드 페이지로 연결되며,
+                    이후에는 데이터셋별 상세 설명 페이지로 확장할 수 있도록 구성했습니다.
+                </p>
             </div>
 
             <div class="table-toolbar">
@@ -46,7 +60,7 @@
                 </div>
 
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search Dataset ID, Title, Source...">
+                    <input type="text" id="searchInput" placeholder="Search Dataset ID, Title, Source, Type...">
                 </div>
             </div>
 
@@ -59,8 +73,10 @@
                             <th>Source</th>
                             <th>Type</th>
                             <th>Label</th>
+                            <th>Level</th>
+                            <th>Description</th>
                             <th>CSV</th>
-                            <th>Guide</th>
+                            <th>Details</th>
                         </tr>
                     </thead>
                     <tbody id="datasetTableBody">
@@ -70,53 +86,150 @@
                             <td>Suricata</td>
                             <td>Flow</td>
                             <td>Binary</td>
+                            <td>Beginner</td>
+                            <td>
+                                Flow 이벤트 중심의 기본 샘플 데이터입니다.
+                                proto, src_port, dest_port, packet/byte 관련 필드를 이용해
+                                CSV 구조와 기본 분석 흐름을 이해하는 데 적합합니다.
+                            </td>
                             <td><a class="table-btn" href="data/suricata-flow-sample.csv" download>Download</a></td>
-                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
                         </tr>
+
                         <tr>
                             <td>SURI-002</td>
                             <td>Suricata Alert Sample</td>
                             <td>Suricata</td>
                             <td>Alert</td>
                             <td>Binary</td>
+                            <td>Beginner</td>
+                            <td>
+                                alert_count, alert_severity와 같은 탐지 관련 정보가 포함된 샘플입니다.
+                                flow 단위 라벨링과 탐지 이벤트 연결 개념을 학습하는 데 활용할 수 있습니다.
+                            </td>
                             <td><a class="table-btn" href="data/suricata-alert-sample.csv" download>Download</a></td>
-                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
                         </tr>
+
                         <tr>
                             <td>TPOT-001</td>
                             <td>T-Pot Traffic Sample</td>
                             <td>T-Pot</td>
                             <td>Flow</td>
                             <td>Binary</td>
+                            <td>Intermediate</td>
+                            <td>
+                                T-Pot 환경에서 수집된 트래픽을 기반으로 한 샘플입니다.
+                                실제 공격 유입 가능성이 있는 환경의 로그 구조를 연습용으로 이해하는 데 적합합니다.
+                            </td>
                             <td><a class="table-btn" href="data/tpot-traffic-sample.csv" download>Download</a></td>
-                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
                         </tr>
+
                         <tr>
                             <td>SURI-003</td>
                             <td>External Test Aligned Sample</td>
                             <td>Suricata</td>
                             <td>Aligned</td>
                             <td>Binary</td>
+                            <td>Intermediate</td>
+                            <td>
+                                외부 로그를 학습 feature 구조에 맞게 정렬한 예시 데이터입니다.
+                                feature_columns 기준 정렬과 예측용 입력 데이터 준비 과정을 실습하는 데 적합합니다.
+                            </td>
                             <td><a class="table-btn" href="data/suricata-flow-sample.csv" download>Download</a></td>
-                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
                         </tr>
+
                         <tr>
                             <td>LAB-001</td>
                             <td>MLP Training Practice Dataset</td>
                             <td>Internal Lab</td>
                             <td>Training</td>
                             <td>Binary</td>
+                            <td>Intermediate</td>
+                            <td>
+                                PyTorch 기반 MLP 학습 흐름을 연습하기 위한 실습용 데이터입니다.
+                                Train/Validation/Test 분리와 scaler 적용 개념을 함께 확인할 수 있습니다.
+                            </td>
                             <td><a class="table-btn" href="data/suricata-alert-sample.csv" download>Download</a></td>
-                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
                         </tr>
+
                         <tr>
                             <td>LAB-002</td>
                             <td>Packet Feature Engineering Sample</td>
                             <td>Internal Lab</td>
                             <td>Feature</td>
                             <td>Binary</td>
+                            <td>Intermediate</td>
+                            <td>
+                                total_pkts, total_bytes, duration, packet_rate, byte_rate 등
+                                파생 feature를 실습하기 위한 데이터 예시입니다.
+                                보안 로그 Feature Engineering 입문용으로 적합합니다.
+                            </td>
                             <td><a class="table-btn" href="data/tpot-traffic-sample.csv" download>Download</a></td>
-                            <td><a class="table-btn secondary" href="guides.html">View</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>LAB-003</td>
+                            <td>Threshold Optimization Practice</td>
+                            <td>Internal Lab</td>
+                            <td>Evaluation</td>
+                            <td>Binary</td>
+                            <td>Advanced</td>
+                            <td>
+                                공격 확률 기반 threshold 조정과 Precision 우선 전략을 연습하기 위한 평가용 예시입니다.
+                                ROC, PR Curve와 함께 후처리 성능 해석에 활용할 수 있습니다.
+                            </td>
+                            <td><a class="table-btn" href="data/suricata-flow-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>LAB-004</td>
+                            <td>Balanced Binary Dataset Sample</td>
+                            <td>Internal Lab</td>
+                            <td>Balanced</td>
+                            <td>Binary</td>
+                            <td>Intermediate</td>
+                            <td>
+                                정상과 공격 비율을 3:1 수준으로 조정한 샘플 데이터입니다.
+                                클래스 불균형 완화와 학습 안정성 비교 실습에 사용할 수 있습니다.
+                            </td>
+                            <td><a class="table-btn" href="data/suricata-alert-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>LAB-005</td>
+                            <td>Suricata Labeling Practice Sample</td>
+                            <td>Internal Lab</td>
+                            <td>Labeling</td>
+                            <td>Binary</td>
+                            <td>Beginner</td>
+                            <td>
+                                flow_id와 alert 연결 기반의 라벨링 실습 예시입니다.
+                                BENIGN=0, ATTACK=1 구조를 이해하고 라벨 컬럼 생성 과정을 연습할 수 있습니다.
+                            </td>
+                            <td><a class="table-btn" href="data/tpot-traffic-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>LAB-006</td>
+                            <td>External Prediction Input Sample</td>
+                            <td>Suricata</td>
+                            <td>Prediction</td>
+                            <td>Binary</td>
+                            <td>Advanced</td>
+                            <td>
+                                저장된 scaler와 encoder를 활용하여 외부 로그에 대해 예측을 수행하기 전,
+                                입력 구조를 맞추는 과정을 학습하기 위한 샘플입니다.
+                            </td>
+                            <td><a class="table-btn" href="data/suricata-flow-sample.csv" download>Download</a></td>
+                            <td><a class="table-btn secondary" href="guides.html">Details</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -124,6 +237,46 @@
 
             <div class="table-footer">
                 <p id="tableCountInfo">Showing dataset entries</p>
+            </div>
+        </section>
+
+        <section class="container" style="margin-top: 30px;">
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Beginner Level</h4>
+                    <p>
+                        Suricata 로그 구조를 처음 접하는 학습자를 위한 단계입니다.
+                        CSV 형식, 기본 컬럼, 라벨 구조를 이해하는 데 초점을 둡니다.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Intermediate Level</h4>
+                    <p>
+                        Feature Engineering, 데이터 밸런싱, 학습용 데이터셋 구성 등
+                        실제 MLP 실습으로 넘어가기 위한 중간 단계입니다.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Advanced Level</h4>
+                    <p>
+                        외부 로그 예측, threshold 최적화, ROC/PR Curve 기반 해석 등
+                        연구 및 고급 실습 흐름으로 확장하기 위한 단계입니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="margin-top: 30px;">
+            <div class="summary-box">
+                <h3>How to Use These Datasets</h3>
+                <ul>
+                    <li>기초 단계에서는 Flow Sample과 Alert Sample로 CSV 구조와 라벨링 개념을 먼저 익힙니다.</li>
+                    <li>중간 단계에서는 Feature Engineering Sample과 Balanced Dataset으로 학습용 데이터셋 구성을 연습합니다.</li>
+                    <li>고급 단계에서는 External Prediction Input Sample과 Threshold Optimization Practice를 통해 실제 예측 및 평가 흐름을 실습합니다.</li>
+                    <li>각 데이터셋은 교육 목적의 샘플이므로 실제 운영 원본 로그 대신 비식별화 및 실습용 구조로 제공하는 것을 권장합니다.</li>
+                </ul>
             </div>
         </section>
     </main>
