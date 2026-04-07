@@ -2,12 +2,16 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, "Noto Sans KR", sans-serif;
     background-color: #0b1220;
     color: #e7edf7;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 a {
@@ -15,17 +19,26 @@ a {
     color: inherit;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
 .container {
     width: min(1200px, 92%);
     margin: 0 auto;
 }
 
+/* =========================
+   Header
+========================= */
 .site-header {
-    background-color: #0f172a;
+    background-color: rgba(15, 23, 42, 0.95);
     border-bottom: 1px solid #1f2a44;
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(8px);
 }
 
 .header-inner {
@@ -43,50 +56,56 @@ a {
 }
 
 .brand-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
     background: linear-gradient(135deg, #2563eb, #0ea5e9);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.28);
 }
 
 .brand h1 {
     margin: 0;
     font-size: 24px;
     color: #ffffff;
+    line-height: 1.2;
 }
 
 .brand p {
-    margin: 2px 0 0 0;
+    margin: 4px 0 0 0;
     color: #93a4c3;
     font-size: 14px;
 }
 
 .nav {
     display: flex;
-    gap: 18px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .nav a {
     color: #c6d3ea;
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: 0.2s ease;
+    font-weight: 700;
+    padding: 9px 14px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .nav a:hover,
 .nav a.active {
     background-color: #1d4ed8;
     color: #ffffff;
+    transform: translateY(-1px);
 }
 
+/* =========================
+   Main / Hero
+========================= */
 .hero {
-    padding: 80px 0 70px;
+    padding: 88px 0 74px;
     background:
         radial-gradient(circle at top left, rgba(37, 99, 235, 0.25), transparent 35%),
         radial-gradient(circle at top right, rgba(14, 165, 233, 0.18), transparent 30%);
@@ -97,10 +116,11 @@ a {
     font-size: 42px;
     line-height: 1.2;
     color: #ffffff;
+    letter-spacing: -0.02em;
 }
 
 .hero p {
-    max-width: 760px;
+    max-width: 780px;
     margin: 0;
     color: #b7c5dd;
     font-size: 18px;
@@ -113,20 +133,32 @@ a {
     flex-wrap: wrap;
 }
 
+.page-main,
+.features-section,
+.summary-section {
+    padding: 54px 0 76px;
+}
+
+/* =========================
+   Buttons
+========================= */
 .btn {
     display: inline-block;
     padding: 12px 20px;
     border-radius: 10px;
     font-weight: 700;
+    transition: 0.2s ease;
 }
 
 .btn-primary {
     background-color: #2563eb;
     color: #ffffff;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
 }
 
 .btn-primary:hover {
     background-color: #1d4ed8;
+    transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -137,16 +169,15 @@ a {
 
 .btn-secondary:hover {
     background-color: #1d2a44;
+    transform: translateY(-1px);
 }
 
-.features-section,
-.summary-section,
-.page-main {
-    padding: 50px 0 70px;
-}
-
-.section-title {
-    margin-bottom: 26px;
+/* =========================
+   Typography / Sections
+========================= */
+.section-title,
+.page-heading {
+    margin-bottom: 28px;
 }
 
 .section-title h3,
@@ -154,14 +185,19 @@ a {
     margin: 0 0 10px;
     font-size: 30px;
     color: #ffffff;
+    line-height: 1.25;
 }
 
 .section-title p,
 .page-heading p {
     margin: 0;
     color: #9fb0cc;
+    max-width: 920px;
 }
 
+/* =========================
+   Cards / Boxes
+========================= */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -172,11 +208,11 @@ a {
 .guide-card,
 .content-box,
 .summary-box {
-    background-color: #101a2e;
+    background: linear-gradient(180deg, #101a2e 0%, #0f1729 100%);
     border: 1px solid #1f2a44;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 .card h4,
@@ -184,7 +220,9 @@ a {
 .content-box h3,
 .summary-box h3 {
     margin-top: 0;
+    margin-bottom: 12px;
     color: #ffffff;
+    line-height: 1.35;
 }
 
 .card p,
@@ -194,15 +232,30 @@ a {
     color: #b6c4dd;
 }
 
-.summary-box ul {
+.guide-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.guide-card p:last-child,
+.card p:last-child,
+.content-box p:last-child {
     margin-bottom: 0;
+}
+
+.summary-box ul {
+    margin: 0;
     padding-left: 20px;
 }
 
-.page-heading {
-    margin-bottom: 30px;
+.summary-box li + li {
+    margin-top: 10px;
 }
 
+/* =========================
+   Dataset Controls
+========================= */
 .table-toolbar {
     display: flex;
     justify-content: space-between;
@@ -218,6 +271,8 @@ a {
     align-items: center;
     gap: 10px;
     color: #d8e2f2;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .entries-box select,
@@ -228,23 +283,35 @@ a {
     padding: 10px 12px;
     border-radius: 10px;
     font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.entries-box select:focus,
+.search-box input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
 }
 
 .search-box input {
-    min-width: 300px;
+    min-width: 320px;
 }
 
+/* =========================
+   Dataset Table
+========================= */
 .table-wrapper {
     overflow-x: auto;
-    background-color: #101a2e;
+    background: linear-gradient(180deg, #101a2e 0%, #0d1628 100%);
     border: 1px solid #1f2a44;
-    border-radius: 16px;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
 .dataset-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 900px;
+    min-width: 1200px;
 }
 
 .dataset-table thead {
@@ -257,41 +324,88 @@ a {
     text-align: left;
     border-bottom: 1px solid #22304b;
     font-size: 14px;
+    vertical-align: top;
 }
 
 .dataset-table th {
-    color: #c9d7ec;
+    color: #d2ddf0;
     font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
 }
 
 .dataset-table td {
     color: #e7edf7;
 }
 
+.dataset-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
 .dataset-table tbody tr:hover {
     background-color: #16243c;
 }
 
+.dataset-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 각 열 느낌 보정 */
+.dataset-table td:nth-child(1),
+.dataset-table td:nth-child(3),
+.dataset-table td:nth-child(4),
+.dataset-table td:nth-child(5),
+.dataset-table td:nth-child(6) {
+    white-space: nowrap;
+    font-weight: 600;
+    color: #d7e3f6;
+}
+
+.dataset-table td:nth-child(2) {
+    min-width: 220px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.dataset-table td:nth-child(7) {
+    min-width: 360px;
+    max-width: 420px;
+    white-space: normal;
+    line-height: 1.65;
+    color: #b8c7df;
+}
+
+/* =========================
+   Table Buttons
+========================= */
 .table-btn {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 92px;
+    padding: 9px 14px;
+    border-radius: 9px;
     background-color: #0ea5e9;
     color: #ffffff;
     font-weight: 700;
     font-size: 13px;
+    transition: 0.2s ease;
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.18);
 }
 
 .table-btn:hover {
     background-color: #0284c7;
+    transform: translateY(-1px);
 }
 
 .table-btn.secondary {
     background-color: #334155;
+    box-shadow: none;
 }
 
 .table-btn.secondary:hover {
     background-color: #475569;
+    transform: translateY(-1px);
 }
 
 .table-footer {
@@ -300,12 +414,16 @@ a {
     font-size: 14px;
 }
 
-.guide-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
+/* =========================
+   Utility
+========================= */
+.hidden-row {
+    display: none;
 }
 
+/* =========================
+   Footer
+========================= */
 .site-footer {
     border-top: 1px solid #1f2a44;
     background-color: #0f172a;
@@ -318,26 +436,94 @@ a {
     font-size: 14px;
 }
 
-.hidden-row {
-    display: none;
-}
-
-@media (max-width: 900px) {
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 1100px) {
     .card-grid {
         grid-template-columns: 1fr;
     }
 
+    .dataset-table {
+        min-width: 1050px;
+    }
+}
+
+@media (max-width: 900px) {
     .header-inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .nav {
+        width: 100%;
     }
 
     .hero h2 {
         font-size: 32px;
     }
 
-    .search-box input {
-        min-width: 220px;
+    .hero p {
+        font-size: 16px;
+    }
+
+    .page-heading h2,
+    .section-title h3 {
+        font-size: 26px;
+    }
+
+    .search-box {
         width: 100%;
+    }
+
+    .search-box input {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .table-toolbar {
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 640px) {
+    .brand {
+        align-items: flex-start;
+    }
+
+    .brand h1 {
+        font-size: 20px;
+    }
+
+    .brand p {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 68px 0 54px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .card,
+    .guide-card,
+    .content-box,
+    .summary-box {
+        padding: 20px;
+    }
+
+    .dataset-table {
+        min-width: 980px;
     }
 }
