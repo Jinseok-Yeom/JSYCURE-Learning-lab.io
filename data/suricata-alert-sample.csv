@@ -1,0 +1,4 @@
+flow_id,proto,app_proto,flow_state,src_port,dest_port,alert_count,alert_severity,total_pkts,total_bytes,duration,label
+2001,TCP,http,established,50231,80,1,2,25,4300,1.5,1
+2002,TCP,tls,established,44321,443,0,0,18,2800,2.4,0
+2003,UDP,dns,new,53000,53,1,1,11,780,0.6,1
