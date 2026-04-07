@@ -1,0 +1,4 @@
+flow_id,proto,src_port,dest_port,pkts_toserver,pkts_toclient,bytes_toserver,bytes_toclient,total_pkts,total_bytes,duration,flow_ratio,pkt_ratio,byte_ratio,label
+3001,TCP,60001,23,40,3,8200,250,43,8450,1.0,32.67,10.00,32.67,1
+3002,TCP,60111,22,5,7,300,920,12,1220,3.4,0.33,0.71,0.33,0
+3003,UDP,60222,161,14,2,1700,120,16,1820,0.9,14.05,4.66,14.05,1
